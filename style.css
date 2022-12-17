@@ -51,5 +51,5 @@ h1 {
   border-radius: 20px;
   background-color: #fff;
   transform-origin: center center;
-  transform: translate(-50%, -50%);
+  transform: translate(-13px, -13px);
 }

@@ -1,11 +1,14 @@
 const coords = { x: 0, y: 0 };
 const circles = document.querySelectorAll('#cursor > span');
 
+circles.forEach(function (circle) {
+  circle.x = 0;
+  circle.y = 0;
+})
+
 window.addEventListener('mousemove', function (e) {
   coords.x = e.clientX;
   coords.y = e.clientY;
-
-  animateCircles();
 })
 
 function animateCircles() {
@@ -13,7 +16,15 @@ function animateCircles() {
   let y = coords.y;
 
   circles.forEach(function (circle, index) {
-    console.log(circle);
-    circle.style = 'transform:translate(calc(' + x + 'px - 50%), calc(' + y + 'px - 50%));';
+    circle.style = 'transform:translate(' + (x - 13) + 'px, ' + (y - 13) + 'px) ' + 'scale(' + ((circles.length - index) / circles.length) + ');';
+    //circle.style.top = y + 'px';
+    //circle.style.left = x + 'px';
+    circle.x = x;
+    circle.y = y;
+    const nextCircle = circles[index + 1] || circles[0];
+    x += (nextCircle.x - x) * .3;
+    y += (nextCircle.y - y) * .3;
   })
+  requestAnimationFrame(animateCircles);
 }
+animateCircles();
