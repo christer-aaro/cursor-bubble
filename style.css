@@ -1,0 +1,55 @@
+body {
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  background-color: #fff;
+}
+
+main {
+  flex: 1;
+  padding: 2rem;
+}
+
+main > * {
+  max-width: 840px;
+  margin-inline: auto;
+}
+
+section {
+  padding-top: clamp(4rem, 15vh, 8rem);
+}
+
+h1 {
+  font-family: Lora;
+  font-weight: 600;
+  font-size: clamp(2rem, 4vw, 5rem);
+  line-height: 1.1;
+  margin-top: 0;
+}
+
+/* Cursor */
+
+.cursor {
+  pointer-events: none;
+  position: fixed;
+  display: block;
+  border-radius: 0;
+  transform-origin: center center;
+  top: 0;
+  left: 0;
+  mix-blend-mode: difference;
+  z-index: 9999999999999999;
+}
+
+.cursor span {
+  position: absolute;
+  display: block;
+  width: 26px;
+  height: 26px;
+  border-radius: 20px;
+  background-color: #fff;
+  transform-origin: center center;
+  transform: translate(-50%, -50%);
+}
